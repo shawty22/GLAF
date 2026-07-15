@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Primary palette */
+  --color-slate: #0c0d0e;
+  --color-slate-dim: #18191b;
+  --color-slate-raised: #232529;
+  --color-warm-white: #faf8f4;
+  --color-warm-white-dim: #f1eee6;
+  --color-warm-white-raised: #eae6db;
+  --color-graphite: #4a4f57;
+  --color-graphite-light: #7a808a;
+
+  /* Semantic accents */
+  --color-forest: #14a05a;
+  --color-forest-soft: #e0f5e9;
+  --color-ocean: #2f5f8a;
+  --color-ocean-soft: #e6eef5;
+  --color-amber: #b8863b;
+  --color-amber-soft: #f5ecdc;
+  --color-risk: #a4423a;
+  --color-risk-soft: #f5e6e4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-warm-white text-slate dark:bg-slate dark:text-warm-white-dim;
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+::selection {
+  @apply bg-forest-soft dark:bg-forest/30;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-ocean dark:outline-forest;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,31 +1,32 @@
-# GLAM
+# React + TypeScript + Vite
 
-**Global Local AI Mobilisation** — policy, advocacy, and outreach for sovereign, privacy-first AI.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## What It Is
+Currently, two official plugins are available:
 
-GLAM is a policy and advocacy initiative built on four pillars:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-1. **Power** — Reducing AI's energy footprint. Local inference over centralised cloud compute.
-2. **Privacy** — Data sovereignty. On-device processing. No personal data leaving the user's machine.
-3. **Policy (now)** — Immediate legislative protections: AI decision rights, algorithmic transparency, corporate accountability.
-4. **Policy (future)** — 10-year frameworks to prevent AI monopolisation and keep open-source community AI viable.
+## React Compiler
 
-## What's Here
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- `index.html` — GLAM public website
-- `assets/` — logos, images, design assets
-- `decks/` — presentation decks for outreach
-- `outreach/` — contact lists, campaign materials
-- `research/` — background research, policy documents
+## Expanding the Oxlint configuration
 
-## Related Projects
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-- `EarthGPT` — climate AI demo built on GLAM values (Earth Day 2026)
-- `Glam-OS` — the local sovereign AI operating system underpinning the GLAM stack
-- `SFCW2026` — SF Climate Week 2026 event tagging and outreach
-- `glammovement` — Glam Movement community site
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
 
-## GitHub
-
-Not yet pushed. Should be at `github.com/shawty22/glam` or as part of the GLAM org.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
